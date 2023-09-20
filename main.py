@@ -1,4 +1,6 @@
 """
+Test Cases:
+
 Reflector: A
 Rotors: I-II-III
 Plugboard: A-R, G-K, O-X
@@ -9,14 +11,11 @@ from Keyboard import keyboard
 from Plugboard import plugboard
 from Rotors import rotor
 from Reflector import reflector
+from Enigma import enigma
 
 
 
-
-
-
-
-
+# Enigma Rotor and Reflectors Setings from the orignal WWII Era
 I = rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", "Q")
 II = rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", "E")
 III = rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", "V")
@@ -26,22 +25,13 @@ A = reflector("EJMZALYXVBWFCRQUONTSPIKHGD")
 B = reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 C = reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
 
+
+#keyboard and plugboard specifics
 KB=keyboard()
 PB=plugboard(["AR", "GK", "OX"])
 
+#Enigma machine settings
+ENIGMA = enigma(A,I,II,III,PB,KB)
 
-letter = "A"
-signal = KB.forward(letter)
-signal = PB.forward(signal)
-signal = III.forward(signal)
-signal = II.forward(signal)
-signal = I.forward(signal)
-signal = A.reflect(signal)
-signal = I.backward(signal)
-signal = II.backward(signal)
-signal = III.backward(signal)
-signal = PB.backward(signal)
-letter = KB.backward(signal)
-print(letter)
-
-
+#Enciphering a letter
+print(ENIGMA.encipher("A"))
