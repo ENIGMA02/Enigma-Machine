@@ -14,10 +14,15 @@ class rotor:
         signal = self.right.find(letter)
         return signal
 
-    def rotate(self, n=1):
+    def rotate(self, n=1, forward=True):
         for i in range(n):
-            self.left = self.left[1:]+self.left[0]
-            self.right = self.right[1:]+self.right[0]
+            if forward:
+                self.left = self.left[1:]+self.left[0]
+                self.right = self.right[1:]+self.right[0]
+            else:
+                self.left = self.left[25]+self.left[:25]
+                self.right = self.right[25]+self.right[:25]
+
 
     def show(self):
         print(self.left)
@@ -27,5 +32,16 @@ class rotor:
     def rotate_to_letter(self, letter):
         n = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".find(letter)
         self.rotate(n)
+
+    def set_ring(self, n):
+
+
+        #rotate the rotot backwards
+        self.rotate(n-1, forward=False)
+
+        #adjust the turnover notch
+        n_notch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".find(self.notch)
+        self.notch="ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(n_notch-n) % 26]
+
 
 #print(II.forward(1))

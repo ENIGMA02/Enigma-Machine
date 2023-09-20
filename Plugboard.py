@@ -9,7 +9,7 @@ class plugboard:
             pos_A = self.left.find(A)
             pos_B = self.left.find(B)
             self.left = self.left[:pos_A] + B + self.left[pos_A+1:]
-            self.left = self.left[:pos_B] + A + self.left[pos_B+1:]\
+            self.left = self.left[:pos_B] + A + self.left[pos_B+1:]
             
 
     def forward(self, signal):

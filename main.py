@@ -28,10 +28,26 @@ C = reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
 
 #keyboard and plugboard specifics
 KB=keyboard()
-PB=plugboard(["AR", "GK", "OX"])
+PB=plugboard(["AB", "CD", "EF"])
 
 #Enigma machine settings
-ENIGMA = enigma(A,I,II,III,PB,KB)
+ENIGMA = enigma(B,IV,II,I,PB,KB)
 
-#Enciphering a letter
-print(ENIGMA.encipher("A"))
+#Enigma Ring Settings
+ENIGMA.set_rings((5,26,2))
+
+#seting the Enigma Key
+ENIGMA.set_key("CAT")
+#ENIGMA.r1.show()
+#ENIGMA.r2.show()
+#ENIGMA.r3.show()
+
+#Enciphering a message
+message="TEST"
+cipher_text=""
+for letters in message:
+    cipher_text=cipher_text+ENIGMA.encipher(letters)
+
+print(cipher_text)
+
+#print(ENIGMA.encipher("A"))
