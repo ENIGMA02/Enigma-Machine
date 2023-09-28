@@ -22,8 +22,8 @@ HEIGHT=900
 SCREEN=pygame.display.set_mode((WIDTH,HEIGHT))
 
 #Fonts
-MONO=pygame.font.SysFont("Freemono", 25)
-BOLD=pygame.font.SysFont("Freemono", 25, bold=True)
+#MONO=pygame.font.SysFont("Freemono", 25)
+#BOLD=pygame.font.SysFont("Freemono", 25, bold=True)
 
 # Enigma Rotor and Reflectors Setings from the orignal WWII Era
 I = rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", "Q")

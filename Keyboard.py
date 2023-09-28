@@ -1,7 +1,8 @@
 import pygame
 pygame.init()
 
-
+font = pygame.font.Font('freesansbold.ttf', 32)
+ 
 
 class keyboard:
     def forward(self,letter):
@@ -22,8 +23,8 @@ class keyboard:
         #letters
         for i in range(26):
             letter="ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i]
-            letter=font.render(letter, True, "grey")
-            text_box = letter.get_rect(center = (x+w/2), (i+1)*h/27)
+            letter= font.render(letter, True, "grey")
+            text_box = letter.get_rect(center = (x+w/2, (i+1)*h/27))
         
     
 #k=keyboard()
