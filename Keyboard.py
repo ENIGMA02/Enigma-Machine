@@ -24,7 +24,7 @@ class keyboard:
         for i in range(26):
             letter="ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i]
             letter= font.render(letter, True, "grey")
-            text_box = letter.get_rect(center = (x + (i + 0.5) * (w / 26), y + h / 2))
+            text_box = letter.get_rect(center = (x +w/2, y +(i+1)*h / 27))
             screen.blit(letter, text_box)
         
     

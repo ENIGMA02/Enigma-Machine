@@ -39,13 +39,13 @@ class plugboard:
             #LHS
             letter=self.left[i]
             letter= font.render(letter, True, "grey")
-            text_box = letter.get_rect(center = (x + (i + 0.5) * (w / 26), y + h / 4))
+            text_box = letter.get_rect(center = (x +w/4, y +(i+1)*h / 27))
             screen.blit(letter, text_box)
 
             #rHS
             letter=self.right[i]
             letter= font.render(letter, True, "grey")
-            text_box = letter.get_rect(center = (x + (i + 0.5) * (w / 26), y + h* 3/ 4))
+            text_box = letter.get_rect(center = (x +w*3/4, y +(i+1)*h / 27))
             screen.blit(letter, text_box)
 
 

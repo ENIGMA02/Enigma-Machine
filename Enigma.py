@@ -58,6 +58,7 @@ class enigma:
         signal = self.r1.forward(signal)
         path.append(signal)
         path.append(signal)
+        path.append(signal)
         signal = self.re.reflect(signal)
         path.append(signal)
         path.append(signal)
