@@ -21,8 +21,13 @@ from Draw import draw
 WIDTH=1600
 HEIGHT=900
 SCREEN=pygame.display.set_mode((WIDTH,HEIGHT))
-MARGINS={"top":50, "bottom":100, "left":500, "right":100, }
+MARGINS={"top":50, "bottom":100, "left":300, "right":300, }
 GAP=50
+
+
+INPUT=""
+OUTPUT=""
+PATH=[]
 
 #Fonts
 MONO=pygame.font.SysFont("Freemono", 25)
@@ -69,12 +74,22 @@ while animating:
     SCREEN.fill("#333333")
     #pygame.display.flip()
 
-    #backdrop color
-    SCREEN.fill("#333333")
+    #text input
+    text= BOLD.render(INPUT, True, "white")
+    text_box = text.get_rect(center = (HEIGHT/2,MARGINS["bottom"]/2))
+    SCREEN.blit(text, text_box)
+
+
+    #text output
+    text= MONO.render(OUTPUT, True, "white")
+    text_box = text.get_rect(center = (HEIGHT/2,MARGINS["bottom"]/2+20))
+    SCREEN.blit(text, text_box)
+
+
 
 
     #Enigma MAchine
-    draw(ENIGMA, SCREEN, WIDTH, HEIGHT, MARGINS, GAP, BOLD)
+    draw(ENIGMA, PATH, SCREEN, WIDTH, HEIGHT, MARGINS, GAP, BOLD)
 
 
     #update screen
@@ -87,6 +102,15 @@ while animating:
         elif event.type ==pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 III.rotate()
+            else:
+                key=event.unicode
+                if key in "abcdefghijklmnopqrstuvwxyz":
+                    letter=key.upper()
+                    INPUT=INPUT+letter
+                    PATH, cipher = ENIGMA.encipher(letter)
+                    print(PATH)
+                    OUTPUT=OUTPUT+cipher
+                    print(INPUT)
 
 
 #print(ENIGMA.encipher("A"))
