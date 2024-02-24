@@ -1,3 +1,9 @@
+import pygame
+pygame.init()
+
+font = pygame.font.Font('freesansbold.ttf', 32)
+
+
 class rotor:
     def __init__(self, wiring, notch):
         self.left = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -42,6 +48,37 @@ class rotor:
         #adjust the turnover notch
         n_notch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".find(self.notch)
         self.notch="ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(n_notch-n) % 26]
+
+    def Draw(self,screen,x,y,w,h, font):
+
+        #rectangle
+        r =pygame.Rect(x,y,w,h)
+        pygame.draw.rect(screen, "white", r, width=2, border_radius=15)
+
+        #letters
+        for i in range(26):
+
+            #LHS
+            letter=self.left[i]
+            letter= font.render(letter, True, "grey")
+            text_box = letter.get_rect(center = (x + (i + 0.5) * (w / 26), y + h / 4))
+
+            # Highlighting the top letter
+            if i == 0:
+                pygame.draw.rect(screen,"teal", text_box, border_radius=5)
+
+            # Highlighting the turnover notch
+            if self.left[i] == self.notch:
+                letter= font.render(self.notch, True, "#333333")
+                pygame.draw.rect(screen,"white", text_box, border_radius=5)
+
+            screen.blit(letter, text_box)
+
+            #rHS
+            letter=self.right[i]
+            letter= font.render(letter, True, "grey")
+            text_box = letter.get_rect(center = (x + (i + 0.5) * (w / 26), y + h* 3/ 4))
+            screen.blit(letter, text_box)
 
 
 #print(II.forward(1))
