@@ -21,7 +21,8 @@ from Draw import draw
 WIDTH=1600
 HEIGHT=900
 SCREEN=pygame.display.set_mode((WIDTH,HEIGHT))
-MARGINS={"top":1000, "bottom":50, "left":100, "right":100, }
+MARGINS={"top":50, "bottom":100, "left":500, "right":100, }
+GAP=50
 
 #Fonts
 MONO=pygame.font.SysFont("Freemono", 25)
@@ -73,7 +74,7 @@ while animating:
 
 
     #Enigma MAchine
-    draw(ENIGMA, SCREEN, WIDTH, HEIGHT, MARGINS, None, BOLD)
+    draw(ENIGMA, SCREEN, WIDTH, HEIGHT, MARGINS, GAP, BOLD)
 
 
     #update screen
