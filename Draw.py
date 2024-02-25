@@ -2,10 +2,7 @@ import pygame
 
 def draw(enigma,path, screen, width, height, margins, gap, font):
 
-    #Height and Width
-    # h=(height-margins["top"]-margins["bottom"]-(5*gap)) /6
-    # w=width-margins["left"]-margins["right"]
-
+    # Width and Height 
     w=(width-margins["left"]-margins["right"]-(5*gap)) /6
     h=height-margins["top"]-margins["bottom"]
 
@@ -49,10 +46,10 @@ def draw(enigma,path, screen, width, height, margins, gap, font):
         x+=w+gap
 
     #add names
-    names=["Reflector", "Left", "Middle", "right", "Plugboard", "Key/Lamp"]
+    names=["Reflector", "Left", "Middle", "Right", "Plugboard", "Key/Lamp"]
     y=margins["top"]*0.8
     for i in range(6):
         x=margins["left"]+w/2+i*(w+gap)
-        title= font.render(names[i], True, "white")
+        title= font.render(names[i], True, "#004cff")
         text_box = title.get_rect(center = (x, y))
         screen.blit(title, text_box)

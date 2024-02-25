@@ -48,7 +48,3 @@ class plugboard:
             text_box = letter.get_rect(center = (x +w*3/4, y +(i+1)*h / 27))
             screen.blit(letter, text_box)
 
-
-
-#p=plugboard(["AC","BH"])
-#print(p.forward(7))

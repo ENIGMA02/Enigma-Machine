@@ -56,22 +56,10 @@ ENIGMA.set_rings((1,1,1))
 
 #seting the Enigma Key
 ENIGMA.set_key("CAT")
-#ENIGMA.r1.show()
-#ENIGMA.r2.show()
-#ENIGMA.r3.show()
 
-# #Enciphering a message
-# message="MYNAMEISKARAN"
-# cipher_text=""
-# for letters in message:
-#     cipher_text=cipher_text+ENIGMA.encipher(letters)
-
-# print(cipher_text)
-
-#
 animating = True
 while animating:
-    SCREEN.fill("#333333")
+    SCREEN.fill("#000000")
     #pygame.display.flip()
 
     #text input
@@ -115,5 +103,3 @@ while animating:
                     OUTPUT=OUTPUT+cipher
                     print(INPUT)
 
-
-#print(ENIGMA.encipher("A"))
