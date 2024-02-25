@@ -1,6 +1,6 @@
 # Enigma Machine Simulator
 
-##Enigma Machine made using Python and PyGame
+## Enigma Machine made using Python and PyGame
 
 
 This is a project which is supposed to emulate the ENIGMA Machine, which was used in WWII as a cryptic communication device by Germany.
