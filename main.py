@@ -21,8 +21,13 @@ from Draw import draw
 WIDTH=1600
 HEIGHT=900
 SCREEN=pygame.display.set_mode((WIDTH,HEIGHT))
-MARGINS={"top":50, "bottom":100, "left":500, "right":100, }
-GAP=50
+MARGINS={"top":200, "bottom":200, "left":100, "right":100, }
+GAP=100
+
+
+INPUT=""
+OUTPUT=""
+PATH=[]
 
 #Fonts
 MONO=pygame.font.SysFont("Freemono", 25)
@@ -51,30 +56,28 @@ ENIGMA.set_rings((1,1,1))
 
 #seting the Enigma Key
 ENIGMA.set_key("CAT")
-#ENIGMA.r1.show()
-#ENIGMA.r2.show()
-#ENIGMA.r3.show()
 
-# #Enciphering a message
-# message="MYNAMEISKARAN"
-# cipher_text=""
-# for letters in message:
-#     cipher_text=cipher_text+ENIGMA.encipher(letters)
-
-# print(cipher_text)
-
-#
 animating = True
 while animating:
-    SCREEN.fill("#333333")
+    SCREEN.fill("#000000")
     #pygame.display.flip()
 
-    #backdrop color
-    SCREEN.fill("#333333")
+    #text input
+    text= BOLD.render(INPUT, True, "white")
+    text_box = text.get_rect(center = (WIDTH/2,MARGINS["top"]/3))
+    SCREEN.blit(text, text_box)
+
+
+    #text output
+    text= MONO.render(OUTPUT, True, "white")
+    text_box = text.get_rect(center = (WIDTH/2,MARGINS["top"]/3+25))
+    SCREEN.blit(text, text_box)
+
+
 
 
     #Enigma MAchine
-    draw(ENIGMA, SCREEN, WIDTH, HEIGHT, MARGINS, GAP, BOLD)
+    draw(ENIGMA, PATH, SCREEN, WIDTH, HEIGHT, MARGINS, GAP, BOLD)
 
 
     #update screen
@@ -87,6 +90,16 @@ while animating:
         elif event.type ==pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 III.rotate()
+            elif event.key== pygame.K_SPACE:
+                INPUT=INPUT+" "
+                OUTPUT=OUTPUT+" "
+            else:
+                key=event.unicode
+                if key in "abcdefghijklmnopqrstuvwxyz":
+                    letter=key.upper()
+                    INPUT=INPUT+letter
+                    PATH, cipher = ENIGMA.encipher(letter)
+                    print(PATH)
+                    OUTPUT=OUTPUT+cipher
+                    print(INPUT)
 
-
-#print(ENIGMA.encipher("A"))
