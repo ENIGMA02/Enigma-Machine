@@ -93,6 +93,8 @@ while animating:
             elif event.key== pygame.K_SPACE:
                 INPUT=INPUT+" "
                 OUTPUT=OUTPUT+" "
+            elif event.key==pygame.K_ESCAPE:
+                animating=False
             else:
                 key=event.unicode
                 if key in "abcdefghijklmnopqrstuvwxyz":
