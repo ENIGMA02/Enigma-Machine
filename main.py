@@ -95,6 +95,10 @@ while animating:
                 OUTPUT=OUTPUT+" "
             elif event.key==pygame.K_ESCAPE:
                 animating=False
+            # elif event.key==pygame.K_BACKSPACE:   # In progress to delete the last letter and reset the path to the previous letter
+            #     INPUT=INPUT[:-1]
+            #     PATH, cipher = ENIGMA.encipher(" ")
+            #     OUTPUT=OUTPUT[:-1]
             else:
                 key=event.unicode
                 if key in "abcdefghijklmnopqrstuvwxyz":
